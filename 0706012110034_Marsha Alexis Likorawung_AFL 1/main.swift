@@ -7,5 +7,8 @@
 
 import Foundation
 
-print("AFL 1")
+var userInput: String = ""
+print("Your name? ")
+userInput = readLine()!
 
+print("User Input: \(userInput)")
