@@ -39,84 +39,129 @@ func Game(){
         name = readLine()!
     }
     print("Nice to meet you \(name)!\n")
-
-    //Journey Screen
-    print("From here, you can....\n \n[C]heck your health and stats \n[H]eal your wounds with potion\n \n...or choose where you want to go\n \n[F]orest of Troll\n[M]ountain of Golem\n[Q]uit game \n \nYour choice?\n")
-
-    choose = readLine()!
-    switch choose.uppercased() {
-    case "C":
-        //    PlayerStats(name: name)
+    JourneyScreen()
+    func JourneyScreen(){
+        //Journey Screen
+        print("From here, you can....\n \n[C]heck your health and stats \n[H]eal your wounds with potion\n \n...or choose where you want to go\n \n[F]orest of Troll\n[M]ountain of Golem\n[Q]uit game \n \nYour choice?\n")
         
-        
-        //Player stats screen
-        //func PlayerStats(name : String)-> String{
-        print("Player name: \(name)\n \nHP: \(hp)/100 \nMP: \(mp)/50 \n \nMagic: \n- Physical Attack. No mana required. Deal 5pt of damage.\n- Meteor. Use 15pt of MP. Deal 50pt of damage.\n- Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \nItems:\n- Potion x10. Heal 20pt of your HP.\n- Elixir x5. Add 10pt of your MP.\n \nPress [return] to go back: ")
-        var input1 = readLine()
-        while(input1 != ""){
-            print("Press [return] to continue: ")
-            input1 = readLine()
-        }
-        //    return
-        //}
-        
-    case "H":
-        //heal wound screen
-        
-        print("Your HP is \(hp). \nYou have \(potions) Potions.\n \nAre you sure want to use 1 potion to heal wound? [Y/N]")
-        var heal = readLine()
-        if heal=="Y".lowercased(){
-            if potions==0{
-                //run out of potion
-                print("You don't have any potion left. Be careful of your next jouney. \nPress [return] to go back:")
-            }else{
-                //masih ada potion
-                //belum function pengurangan
-                print("Your HP is now: \(hp). \nYou have \(potions) Potions left.\n \nStill want to use 1 potion to heal wound again? [Y/N]")
-                var choosepot = readLine()
-                print(choosepot)
-                //funtion looping choosen
+        choose = readLine()!
+        switch choose.uppercased() {
+        case "C":
+            //    PlayerStats(name: name)
+            
+            
+            //Player stats screen
+            //func PlayerStats(name : String)-> String{
+            print("Player name: \(name)\n \nHP: \(hp)/100 \nMP: \(mp)/50 \n \nMagic: \n- Physical Attack. No mana required. Deal 5pt of damage.\n- Meteor. Use 15pt of MP. Deal 50pt of damage.\n- Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \nItems:\n- Potion x10. Heal 20pt of your HP.\n- Elixir x5. Add 10pt of your MP.\n \nPress [return] to go back: ")
+            var input1 = readLine()
+            while(input1 != ""){
+                print("Press [return] to go back: ")
+                input1 = readLine()
             }
+            JourneyScreen()
+            //    return
+            //}
             
+        case "H":
+            //heal wound screen
             
-        }else if heal=="N".lowercased(){
-            
-            
-        }else{
-            print("Not Valid Input")
-            while(heal != "N".lowercased() || heal != "Y".lowercased()){
-                print("Your HP is \(hp). \nYou have \(potions) Potions.\n \nAre you sure want to use 1 potion to heal wound? [Y/N]")
-                heal = readLine()
+            print("Your HP is \(hp). \nYou have \(potions) Potions.\n \nAre you sure want to use 1 potion to heal wound? [Y/N]")
+            var heal = readLine()
+            if heal?.uppercased()=="Y"{
+                //while potions belum 0
+                if potions==0{
+                    //run out of potion
+                    print("You don't have any potion left. Be careful of your next jouney. \nPress [return] to go back:")
+                    var inputret = readLine()
+                    while(inputret != ""){
+                        print("You don't have any potion left. Be careful of your next jouney. \nPress [return] to go back:")
+                        inputret = readLine()
+                        
+                    }
+                    JourneyScreen()
+                }else{
+                    //masih ada potion
+                    //belum function pengurangan
+                    print("Your HP is now: \(hp). \nYou have \(potions) Potions left.\n \nStill want to use 1 potion to heal wound again? [Y/N]")
+                    var choosepot = readLine()
+                    switch choosepot?.uppercased() {
+                    case "Y":
+                        print("y")
+                    case "N":
+                        print("y")
+                    default:
+                        print("y")
+                    }
+                    
+                    //funtion looping choosen
+                }
                 
+                
+            }else if heal?.uppercased()=="N"{
+                
+                print("No")
+            }else{
+                print("Not Valid Input")
+                while(heal?.uppercased() != "N" || heal?.uppercased() != "Y"){
+                    print("Your HP is \(hp). \nYou have \(potions) Potions.\n \nAre you sure want to use 1 potion to heal wound? [Y/N]")
+                    heal = readLine()
+                    switch heal?.uppercased() {
+                    case "Y":
+                        print("y")
+                    case "N":
+                        print("y")
+                    default:
+                        print("y")
+                    }
+                }
             }
+            
+        case "F":
+            //Forest Of troll
+            print("As you enter the forest, you feel a sense of unease wash over you. Suddenly, you hear the sound of twigs snapping behind you. You quickly spin around, and find a Troll emerging from the shadows.\n \n👿 Name: \(troll)\n\n 👿 Health: \(trollhp) \n \n Choose your action:\n[1] Physical Attack. No mana required. Deal 5pt of damage.\n[2] Meteor. Use 15pt of MP. Deal 50pt of damage.\n[3] Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \n[4] Use Potion to heal wound.\n[5] Scan enemy's vital.\n[6] Flee from battle.\n \nYour choice?")
+            var chooseF = readLine()!
+            //checker input int atau bukan
+            switch chooseF {
+            case "1":
+                print("y")
+            case "2":
+                print("y")
+            default:
+                print("y")
+            }
+        case "M":
+            //Mountain Golem Screen
+            print("As you make your way through the rugged mountain terrain, you can feel the chill of the wind biting at your skin. Suddenly, you hear a sound that makes you freeze in your tracks. That's when you see it a massive, snarling Golem emerging from the shadows.\n👿 Name: \(golem)\n👿 Health: \(golemhp) \n \nChoose your action: \n[1] Physical Attack. No mana required. Deal 5pt of damage.\n[2] Meteor. Use 15pt of MP. Deal 50pt of damage.\n[3] Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \n[4] Use Potion to heal wound.\n[5] Scan enemy's vital.\n[6] Flee from battle.\n \nYour choice?")
+            var chooseM = readLine()!
+            //checker input int atau bukan
+            switch chooseM {
+            case "1":
+                print("y")
+            case "2":
+                print("y")
+            default:
+                print("y")
+            }
+            
+        case "Q":
+            //Flee from battle screen
+            print("You feel that if you don't escape soon, you won't be able to continue the fight.\nYou look around frantically, searching for a way out. You sprint towards the exit, your heart pounding in your chest.\n \nYou're safe, for now.\nPress [return] to continue:")
+            var input = readLine()
+            while(input != ""){
+                print("Press [return] to continue: ")
+                input = readLine()
+            }
+            Game()
+        default:
+            print("Have you done something new?")
+            print("You feel that if you don't escape soon, you won't be able to continue the fight.\nYou look around frantically, searching for a way out. You sprint towards the exit, your heart pounding in your chest.\n \nYou're safe, for now.\nPress [return] to continue:")
+            var input = readLine()
+            while(input != ""){
+                print("Press [return] to continue: ")
+                input = readLine()
+            }
+            Game()
         }
-        
-    case "F":
-        //Forest Of troll
-        print("As you enter the forest, you feel a sense of unease wash over you. Suddenly, you hear the sound of twigs snapping behind you. You quickly spin around, and find a Troll emerging from the shadows.\n \n👿 Name: \(troll)\n\n 👿 Health: \(trollhp) \n \n Choose your action:\n[1] Physical Attack. No mana required. Deal 5pt of damage.\n[2] Meteor. Use 15pt of MP. Deal 50pt of damage.\n[3] Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \n[4] Use Potion to heal wound.\n[5] Scan enemy's vital.\n[6] Flee from battle.\n \nYour choice?")
-        
-    case "M":
-        //Mountain Golem Screen
-        print("As you make your way through the rugged mountain terrain, you can feel the chill of the wind biting at your skin. Suddenly, you hear a sound that makes you freeze in your tracks. That's when you see it a massive, snarling Golem emerging from the shadows.\n👿 Name: \(golem)\n👿 Health: \(golemhp) \n \nChoose your action: \n[1] Physical Attack. No mana required. Deal 5pt of damage.\n[2] Meteor. Use 15pt of MP. Deal 50pt of damage.\n[3] Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \n[4] Use Potion to heal wound.\n[5] Scan enemy's vital.\n[6] Flee from battle.\n \nYour choice?")
-        
-    case "Q":
-        //Flee from battle screen
-        print("You feel that if you don't escape soon, you won't be able to continue the fight.\nYou look around frantically, searching for a way out. You sprint towards the exit, your heart pounding in your chest.\n \nYou're safe, for now.\nPress [return] to continue:")
-        var input = readLine()
-        while(input != ""){
-            print("Press [return] to continue: ")
-            input = readLine()
-        }
-        Game()
-    default:
-        print("Have you done something new?")
-        print("You feel that if you don't escape soon, you won't be able to continue the fight.\nYou look around frantically, searching for a way out. You sprint towards the exit, your heart pounding in your chest.\n \nYou're safe, for now.\nPress [return] to continue:")
-        var input = readLine()
-        while(input != ""){
-            print("Press [return] to continue: ")
-            input = readLine()
-        }
-        Game()
     }
 
 }
