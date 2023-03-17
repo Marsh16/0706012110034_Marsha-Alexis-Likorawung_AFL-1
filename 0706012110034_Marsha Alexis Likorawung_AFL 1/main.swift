@@ -16,8 +16,8 @@ var potions : Int  = 10
 var elixer : Int  = 5
 var golem : String = "Golem x1"
 var troll : String = "Troll x1"
-var trollhp : Int=1000
-var golemhp : Int=1000
+var trollhp : Int=100
+var golemhp : Int=100
 var mp : Int=50
 var elixir : Int=5
 
