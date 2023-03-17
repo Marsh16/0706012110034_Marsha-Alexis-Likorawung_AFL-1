@@ -92,7 +92,7 @@ func Afterlosing(){
             print("Press [return] to continue: ")
             input = readLine()
         }
-       fleeFromBattle()
+        fleeFromBattle()
     }
 }
 
