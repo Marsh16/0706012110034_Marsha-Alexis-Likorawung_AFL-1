@@ -299,6 +299,7 @@ func physicalAttackT(){
         print("troll is dead")
     }else if(trollhp==0){
         print("Troll is dead cannot attack")
+        JourneyScreen()
     }else{
         trollhp = trollhp - 5
         
@@ -316,6 +317,8 @@ func physicalAttackG(){
         print("Golem is dead")
     }else if(golemhp==0){
         print("Golem is dead cannot attack")
+        JourneyScreen()
+        JourneyScreen()
     }else{
         golemhp = golemhp - 5
         
@@ -333,6 +336,7 @@ func meteorT(){
         print("Mana is not enough to do attack")
     }else if(trollhp==0){
         print("Troll is dead cannot attack")
+        JourneyScreen()
     }else{
         if(hpbaru<0){
             trollhp = 0
@@ -356,6 +360,7 @@ func meteorG(){
         print("Mana is not enough to do attack")
     }else if(golemhp==0){
         print("Golem is dead cannot attack")
+        JourneyScreen()
     }else{
         if(hpbaru<0){
             golemhp = 0
@@ -378,6 +383,7 @@ func shieldT(){
         print("Mana is not enough to do attack")
     }else if(trollhp==0){
         print("Troll is dead cannot attack")
+        JourneyScreen()
     }else{
         mp-=10
     }
@@ -395,6 +401,7 @@ func shieldG(){
         print("Mana is not enough to do attack")
     }else if(golemhp==0){
         print("Golem is dead cannot attack")
+        JourneyScreen()
     }else{
         mp-=10
     }
@@ -412,6 +419,20 @@ func trollactionscreen(){
         print("You are dead, you lose")
         fleeFromBattle()
     }else{
+        //random attack from enemy
+                let randomInt = Int.random(in: 1..<2)
+                switch(randomInt){
+                case 1:
+                    //trollshield
+                    
+                    break
+                case 2:
+                    //attack biasa
+                    hp = hp-15
+                    break
+                default:
+                    print("sabsdjsabdjb")
+                }
         hp = hp-15
         print("The Troll raises their giant axe and begins to strike you. \n**SLAM** 💥💥")
         print("You are wounded.\nYour HP is now: \(hp)")
