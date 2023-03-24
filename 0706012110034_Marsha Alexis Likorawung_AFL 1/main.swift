@@ -412,20 +412,6 @@ func trollactionscreen(){
         print("You are dead, you lose")
         fleeFromBattle()
     }else{
-       //random attack from enemy
-        let randomInt = Int.random(in: 1..<2)
-        switch(randomInt){
-        case 1:
-            //trollshield
-            
-            break
-        case 2:
-            //attack biasa
-            hp = hp-15
-            break
-        default:
-            print("sabsdjsabdjb")
-        }
         hp = hp-15
         print("The Troll raises their giant axe and begins to strike you. \n**SLAM** 💥💥")
         print("You are wounded.\nYour HP is now: \(hp)")
