@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064751E329CD3445002A3942 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064751E229CD3445002A3942 /* Enemy.swift */; };
+		064751E529CD3454002A3942 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064751E429CD3454002A3942 /* Player.swift */; };
+		064751E729CD3E49002A3942 /* Golem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064751E629CD3E49002A3942 /* Golem.swift */; };
+		064751E929CD3E6C002A3942 /* Troll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064751E829CD3E6C002A3942 /* Troll.swift */; };
 		06F4673E29AD9E4200AFAC08 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F4673D29AD9E4200AFAC08 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +27,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		064751E229CD3445002A3942 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		064751E429CD3454002A3942 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		064751E629CD3E49002A3942 /* Golem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Golem.swift; sourceTree = "<group>"; };
+		064751E829CD3E6C002A3942 /* Troll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Troll.swift; sourceTree = "<group>"; };
 		06F4673A29AD9E4200AFAC08 /* 0706012110034_Marsha Alexis Likorawung_AFL 1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "0706012110034_Marsha Alexis Likorawung_AFL 1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F4673D29AD9E4200AFAC08 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				06F4673D29AD9E4200AFAC08 /* main.swift */,
+				064751E229CD3445002A3942 /* Enemy.swift */,
+				064751E429CD3454002A3942 /* Player.swift */,
+				064751E629CD3E49002A3942 /* Golem.swift */,
+				064751E829CD3E6C002A3942 /* Troll.swift */,
 			);
 			path = "0706012110034_Marsha Alexis Likorawung_AFL 1";
 			sourceTree = "<group>";
@@ -120,6 +132,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				064751E329CD3445002A3942 /* Enemy.swift in Sources */,
+				064751E529CD3454002A3942 /* Player.swift in Sources */,
+				064751E729CD3E49002A3942 /* Golem.swift in Sources */,
+				064751E929CD3E6C002A3942 /* Troll.swift in Sources */,
 				06F4673E29AD9E4200AFAC08 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

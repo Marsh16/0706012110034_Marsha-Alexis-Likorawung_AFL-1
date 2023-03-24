@@ -24,8 +24,6 @@ var elixir : Int=5
 Game()
 
 //
-
-
 //func
 //pengecekan input berupa huruf bukan int
 func validateInput(_ input: String) -> Bool {
@@ -299,6 +297,8 @@ func physicalAttackT(){
     if(hpbaru<0){
         trollhp = 0
         print("troll is dead")
+    }else if(trollhp==0){
+        print("Troll is dead cannot attack")
     }else{
         trollhp = trollhp - 5
         
@@ -314,6 +314,8 @@ func physicalAttackG(){
     if(hpbaru<0){
         golemhp = 0
         print("Golem is dead")
+    }else if(golemhp==0){
+        print("Golem is dead cannot attack")
     }else{
         golemhp = golemhp - 5
         
@@ -329,6 +331,8 @@ func meteorT(){
     let mpbaru = mp-15
     if(mpbaru<0){
         print("Mana is not enough to do attack")
+    }else if(trollhp==0){
+        print("Troll is dead cannot attack")
     }else{
         if(hpbaru<0){
             trollhp = 0
@@ -350,6 +354,8 @@ func meteorG(){
     let mpbaru = mp-15
     if(mpbaru<0){
         print("Mana is not enough to do attack")
+    }else if(golemhp==0){
+        print("Golem is dead cannot attack")
     }else{
         if(hpbaru<0){
             golemhp = 0
@@ -370,6 +376,8 @@ func shieldT(){
     let mpbaru = mp-10
     if(mpbaru<0){
         print("Mana is not enough to do attack")
+    }else if(trollhp==0){
+        print("Troll is dead cannot attack")
     }else{
         mp-=10
     }
@@ -385,6 +393,8 @@ func shieldG(){
     let mpbaru = mp-10
     if(mpbaru<0){
         print("Mana is not enough to do attack")
+    }else if(golemhp==0){
+        print("Golem is dead cannot attack")
     }else{
         mp-=10
     }
@@ -402,6 +412,20 @@ func trollactionscreen(){
         print("You are dead, you lose")
         fleeFromBattle()
     }else{
+       //random attack from enemy
+        let randomInt = Int.random(in: 1..<2)
+        switch(randomInt){
+        case 1:
+            //trollshield
+            
+            break
+        case 2:
+            //attack biasa
+            hp = hp-15
+            break
+        default:
+            print("sabsdjsabdjb")
+        }
         hp = hp-15
         print("The Troll raises their giant axe and begins to strike you. \n**SLAM** 💥💥")
         print("You are wounded.\nYour HP is now: \(hp)")
