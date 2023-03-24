@@ -297,6 +297,7 @@ func physicalAttackT(){
     if(hpbaru<0){
         trollhp = 0
         print("troll is dead")
+        JourneyScreen()
     }else if(trollhp==0){
         print("Troll is dead cannot attack")
         JourneyScreen()
@@ -315,9 +316,9 @@ func physicalAttackG(){
     if(hpbaru<0){
         golemhp = 0
         print("Golem is dead")
+        JourneyScreen()
     }else if(golemhp==0){
         print("Golem is dead cannot attack")
-        JourneyScreen()
         JourneyScreen()
     }else{
         golemhp = golemhp - 5
@@ -334,6 +335,7 @@ func meteorT(){
     let mpbaru = mp-15
     if(mpbaru<0){
         print("Mana is not enough to do attack")
+        JourneyScreen()
     }else if(trollhp==0){
         print("Troll is dead cannot attack")
         JourneyScreen()
@@ -358,6 +360,7 @@ func meteorG(){
     let mpbaru = mp-15
     if(mpbaru<0){
         print("Mana is not enough to do attack")
+        JourneyScreen()
     }else if(golemhp==0){
         print("Golem is dead cannot attack")
         JourneyScreen()
@@ -381,6 +384,7 @@ func shieldT(){
     let mpbaru = mp-10
     if(mpbaru<0){
         print("Mana is not enough to do attack")
+        JourneyScreen()
     }else if(trollhp==0){
         print("Troll is dead cannot attack")
         JourneyScreen()
@@ -399,6 +403,7 @@ func shieldG(){
     let mpbaru = mp-10
     if(mpbaru<0){
         print("Mana is not enough to do attack")
+        JourneyScreen()
     }else if(golemhp==0){
         print("Golem is dead cannot attack")
         JourneyScreen()
