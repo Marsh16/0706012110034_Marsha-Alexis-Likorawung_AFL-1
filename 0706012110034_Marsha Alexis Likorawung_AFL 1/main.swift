@@ -19,7 +19,7 @@ var trollhp : Int=100
 var golemhp : Int=100
 var mp : Int=50
 var elixir : Int=5
-
+var player = Player("")
 //play game
 Game()
 
@@ -54,7 +54,8 @@ func Game(){
         print("May I know your name, a young wizard?")
         name = readLine()!
     }
-    print("Nice to meet you \(name)!\n")
+    player = Player(name)
+    print("Nice to meet you \(player.name)!\n")
     JourneyScreen()
     
 }
@@ -150,7 +151,7 @@ func mountainGolemScreen(){
         golemactionscreen()
     case 2:
         //meteor
-        meteorG()
+        player.meteor(player.enemy[1])
         golemactionscreen()
     case 3:
         //shield
@@ -236,7 +237,8 @@ func forestTrollScreen(){
         break
     case 2:
         //meteor
-        meteorT()
+        player.meteor(player.enemy[0])
+//        meteorT()
         trollactionscreen()
         break
     case 3:
