@@ -16,7 +16,22 @@ class Enemy{
         self.enemyHp = enemyHp
     }
     
-    func EnemyAttack(){
-        self.enemyHp = self.enemyHp - 50
+    func EnemyAttack(_ player: Player){
+        let newhp = player.hp-15
+        if(newhp<0){
+            player.hp = 0
+            print("You are dead, you lose")
+            fleeFromBattle()
+        }else{
+            player.hp = player.hp-15
+            print("The \(enemyName) raises their giant axe and begins to strike you. \n**SLAM** 💥💥")
+            print("You are wounded.\nYour HP is now: \(player.hp)")
+            if self is Golem {
+                mountainGolemScreen()
+            }else{
+                forestTrollScreen()
+            }
+        }
     }
 }
+

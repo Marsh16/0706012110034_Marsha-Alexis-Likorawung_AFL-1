@@ -8,8 +8,13 @@
 import Foundation
 
 class Troll: Enemy {
-   
-    func TrollShield(){
-        
+    
+    override init(_ enemyName: String, _ enemyHp: Int) {
+        super.init(enemyName,enemyHp)
+    }
+    
+    func TrollShield(_ player: Player){
+        print("Troll Shield")
+        forestTrollScreen()
     }
 }

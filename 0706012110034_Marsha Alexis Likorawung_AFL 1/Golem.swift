@@ -9,7 +9,14 @@ import Foundation
 
 class Golem: Enemy {
     
-    func GolemPunch(){
-        
+    override init(_ enemyName: String, _ enemyHp: Int) {
+        super.init(enemyName,enemyHp)
+    }
+    
+    func GolemPunch(_ player: Player){
+        //checker
+        print("Golem Punch!! player lose 20 hp")
+        player.hp = player.hp - 20
+        mountainGolemScreen()
     }
 }
