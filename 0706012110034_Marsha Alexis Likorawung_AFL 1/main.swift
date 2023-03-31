@@ -10,6 +10,7 @@ import Foundation
 var player = Player("")
 var golem = Golem("Golem Hitler", 100)
 var troll = Troll("Troll Chaplin", 100)
+var damage = 0
 //play game
 Game()
 
@@ -23,6 +24,7 @@ func validateInput(_ input: String) -> Bool {
 }
 
 func newGame(){
+    damage = 0
     player = Player("")
     golem = Golem("Golem Hitler", 100)
     troll = Troll("Troll Chaplin", 100)
@@ -135,7 +137,7 @@ func mountainGolemScreen(){
                 //Physical attack
                 //                for golem1 in player.enemy {
                 //                    if golem1 is Golem {
-                player.PhysicalAttack(golem1)
+                damage = player.PhysicalAttack(golem1)
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //golempunch
@@ -156,7 +158,7 @@ func mountainGolemScreen(){
                 //meteor
                 //                for golem1 in player.enemy {
                 //                    if golem1 is Golem {
-                player.Meteor(golem1)
+                damage = player.Meteor(golem1)
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //golempunch
@@ -169,8 +171,6 @@ func mountainGolemScreen(){
                 default:
                     golem.EnemyAttack(player)
                     break
-                    //                        }
-                    //                    }
                 }
                 break
             case 3:
@@ -241,11 +241,11 @@ func forestTrollScreen(){
             switch chooseF {
             case 1:
                 //Physical attack
-                player.PhysicalAttack(troll1)
+                damage = player.PhysicalAttack(troll1)
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //golempunch
-                    troll.TrollShield(player)
+                    troll.TrollShield(player, troll1, damage)
                     break
                 case 2:
                     //attack biasa
@@ -258,12 +258,12 @@ func forestTrollScreen(){
                 break
             case 2:
                 //meteor
-                player.Meteor(troll1)
+                damage = player.Meteor(troll1)
                 //        meteorT()
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //golempunch
-                    troll.TrollShield(player)
+                    troll.TrollShield(player, troll1, damage)
                     break
                 case 2:
                     //attack biasa

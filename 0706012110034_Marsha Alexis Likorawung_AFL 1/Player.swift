@@ -24,7 +24,7 @@ class Player{
         self.enemy = []
     }
     
-    func Meteor(_ enemy: Enemy){
+    func Meteor(_ enemy: Enemy)-> Int{
         print("=================Meteor Attack===============")
         let hpbaru = enemy.enemyHp - 50
         let mpbaru = mana-15
@@ -44,6 +44,7 @@ class Player{
                 print("\(enemy.enemyName) taking 50pt of damage.\nYour mana is now \(mana)\nEnemy’s HP is now \(enemy.enemyHp)")
             }
         }
+        return 50
     }
     
     func Shield(_ enemy: Enemy){
@@ -68,7 +69,7 @@ class Player{
         }
     }
     
-    func PhysicalAttack(_ enemy: Enemy){
+    func PhysicalAttack(_ enemy: Enemy) -> Int{
         print("=================Physical Attack===============")
         let hpbaru = enemy.enemyHp - 5
         if(hpbaru<0){
@@ -83,6 +84,7 @@ class Player{
             
         }
         print("\(enemy.enemyName) taking 5pt of damage.\nNo mana has been used.\n\(enemy.enemyName)’s HP is now \(enemy.enemyHp)")
+        return 5
     }
     
     func UseElixer(){

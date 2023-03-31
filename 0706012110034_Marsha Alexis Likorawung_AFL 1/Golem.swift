@@ -14,9 +14,16 @@ class Golem: Enemy {
     }
     
     func GolemPunch(_ player: Player){
-        //checker
-        print("Golem Punch!! player lose 20 hp")
-        player.hp = player.hp - 20
-        mountainGolemScreen()
+        let newhp = player.hp-20
+        if(newhp<0){
+            player.hp = 0
+            print("You are dead, you lose")
+            fleeFromBattle()
+        }else{
+            player.hp = player.hp - 20
+            print("The \(enemyName) raises their FIST and begins to PUNCH you. \n**POW POW POW** 💥💥")
+            print("You are wounded.\nYour HP is now: \(player.hp)")
+            mountainGolemScreen()
+        }
     }
 }
