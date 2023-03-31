@@ -18,7 +18,7 @@ class Player{
     init(_ name: String){
         self.name = name
         self.hp = 100
-        self.potion = 20
+        self.potion = 10
         self.mana = 50
         self.elixer = 15
         self.enemy = []

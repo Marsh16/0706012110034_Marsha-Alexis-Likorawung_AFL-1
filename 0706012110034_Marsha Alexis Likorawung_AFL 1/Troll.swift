@@ -13,11 +13,10 @@ class Troll: Enemy {
         super.init(enemyName,enemyHp)
     }
     
-    func TrollShield(_ player: Player, _ enemy: Enemy, _ damage: Int){
+    func TrollShield(_ enemy: Enemy, _ damage: Int){
         enemy.enemyHp = enemy.enemyHp + damage
         print("The \(enemy.enemyName) uses their SHIELD and regain their HP from you Attack. \n**HP+ HP+ HP+** 🛡️🛡️")
         print("\nThe \(enemy.enemyName) HP RETURNS TO \(enemy.enemyHp)")
-            print("\nYour HP is now: \(player.hp)")
-            forestTrollScreen()
+        forestTrollScreen()
     }
 }
