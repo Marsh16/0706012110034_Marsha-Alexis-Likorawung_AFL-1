@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Player{
+class Player: ProtocolPlayer{
     var name:String
     var hp: Int
     var potion: Int
@@ -129,7 +129,7 @@ class Player{
                 let choosepot1 = readLine()!
                 switch choosepot1.uppercased() {
                 case "Y":
-                    player.UsePotion()
+                    game.player.UsePotion()
                 case "N":
                     print("Canceled")
                     JourneyScreen()
@@ -153,8 +153,8 @@ class Player{
     }
     
     func Afterlosing(){
-        for golem in player.enemy {
-            for troll in player.enemy {
+        for golem in game.player.enemy {
+            for troll in game.player.enemy {
                 if golem is Golem && troll is Troll{
                     if( golem.enemyHp == 0 && troll.enemyHp == 0){
                         print("You Win, all enemy are dead")
@@ -166,7 +166,7 @@ class Player{
                             print("Press [return] to continue: ")
                             input = readLine()
                         }
-                        Game()
+                        GamePlay()
                     }
                 }
             }

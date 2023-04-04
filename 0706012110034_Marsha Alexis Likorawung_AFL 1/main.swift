@@ -11,13 +11,24 @@
 import Foundation
 
 //initialisasi
-var player = Player("")
-var golem = Golem("Golem Hitler", 100)
-var troll = Troll("Troll Chaplin", 100)
-var damage = 0
+struct Game{
+    var player: Player
+    var golem : Golem
+    var troll : Troll
+    var damage : Int
+    
+    init(_ player:Player, _ golem:Golem,_ troll:Troll,_ damage:Int ){
+        self.player = player
+        self.golem = golem
+        self.troll = troll
+        self.damage = damage
+    }
+}
+
+var game = Game(Player(""), Golem("Golem Hitler", 100), Troll("Troll Chaplin", 100),0)
 
 //play game
-Game()
+GamePlay()
 
 //
 //func
@@ -30,14 +41,11 @@ func validateInput(_ input: String) -> Bool {
 
 //untuk saat sudah kalah dan mau bermain lagi dan saat belum selesai bermain tapi quite game untuk main lagi func ini di buat baru
 func newGame(){
-    damage = 0
-    player = Player("")
-    golem = Golem("Golem Hitler", 100)
-    troll = Troll("Troll Chaplin", 100)
+    game = Game(Player(""), Golem("Golem Hitler", 100), Troll("Troll Chaplin", 100),0)
 }
 
 //untuk memulai game
-func Game(){
+func GamePlay(){
     //new game
     newGame()
     //opening screen
@@ -65,10 +73,10 @@ func Game(){
     }
     
     //buat player, buat enemy (golem dan troll) pada array dalam player, jadi player mempunyai 2 enemy yaitu golem dan troll
-    player = Player(name)
-    player.enemy.append(golem)
-    player.enemy.append(troll)
-    print("Nice to meet you \(player.name)!\n")
+    game.player = Player(name)
+    game.player.enemy.append(game.golem)
+    game.player.enemy.append(game.troll)
+    print("Nice to meet you \(game.player.name)!\n")
     //lalu lanjut ke menu utama (Journey Screen)
     JourneyScreen()
 }
@@ -76,14 +84,14 @@ func Game(){
 //Journey Screen halaman utama
 func JourneyScreen(){
     //lose (ada pengecekan enemy sudah mati semua atau belum)
-    player.Afterlosing()
+    game.player.Afterlosing()
     //pilihan menu utama
     print("From here, you can....\n \n[C]heck your health and stats \n[H]eal your wounds with potion\n[E]lixir for mana\n \n...or choose where you want to go\n \n[F]orest of Troll\n[M]ountain of Golem\n[Q]uit game \n \nYour choice?")
     let choose = readLine()!
     switch choose.uppercased() {
     case "E":
         //untuk menambah mana dari elixer
-        player.UseElixer()
+        game.player.UseElixer()
         break
     case "C":
         //untuk melihat detail player
@@ -124,13 +132,13 @@ func fleeFromBattle(){
         input = readLine()
     }
     //setelah benar, akan memulai game baru
-    Game()
+    GamePlay()
 }
 
 //untuk melihat status player
 func playerStatsScreen(){
     //menampilkan player
-    print("Player name: \(player.name)\n \nHP: \(player.hp)/100 \nMP: \(player.mana)/50 \n \nMagic: \n- Physical Attack. No mana required. Deal 5pt of damage.\n- Meteor. Use 15pt of MP. Deal 50pt of damage.\n- Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \nItems:\n- Potion x20. Heal 20pt of your HP.\n- Elixir x5. Add 10pt of your MP.\n \nPress [return] to go back: ")
+    print("Player name: \(game.player.name)\n \nHP: \(game.player.hp)/100 \nMP: \(game.player.mana)/50 \n \nMagic: \n- Physical Attack. No mana required. Deal 5pt of damage.\n- Meteor. Use 15pt of MP. Deal 50pt of damage.\n- Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \nItems:\n- Potion x20. Heal 20pt of your HP.\n- Elixir x5. Add 10pt of your MP.\n \nPress [return] to go back: ")
     //pilihan enter
     var input1 = readLine()
     //jika bukan enter akan error handling sampai benar
@@ -146,7 +154,7 @@ func playerStatsScreen(){
 //halaman mountain golem
 func mountainGolemScreen(){
     //mencari enemy pada array yang dari subclass enemy Golem
-    for golem1 in player.enemy {
+    for golem1 in game.player.enemy {
         //jika ditemukan yang memiliki class Golem maka akan muncul tampilan ini
         if golem1 is Golem {
             print("As you make your way through the rugged mountain terrain, you can feel the chill of the wind biting at your skin. Suddenly, you hear a sound that makes you freeze in your tracks. That's when you see it a massive, snarling Golem emerging from the shadows.\n👿 Name: \(golem1.enemyName)\n👿 Health: \(golem1.enemyHp) \n \nChoose your action: \n[1] Physical Attack. No mana required. Deal 5pt of damage.\n[2] Meteor. Use 15pt of MP. Deal 50pt of damage.\n[3] Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \n[4] Use Potion to heal wound.\n[5] Scan enemy's vital.\n[6] Flee from battle.\n \nYour choice?")
@@ -157,44 +165,44 @@ func mountainGolemScreen(){
             switch chooseGolem {
             case 1:
                 //untuk player attack physical damagenya sebanyak 5 poin ke enemy, lalu dari method physical attack me-return damagenya untuk dipakai saat enemy melawan dengan shield
-                damage = player.PhysicalAttack(golem1)
+                game.damage = game.player.PhysicalAttack(golem1)
                 //untuk attack oleh enemy di random akan dapat yang mana
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //golem punch damagenya 20 point ke player
-                    golem.GolemPunch(player)
+                    game.golem.GolemPunch(game.player)
                     break
                 case 2:
                     //attack biasa damagenya 15 point
-                    golem.EnemyAttack(player)
+                    game.golem.EnemyAttack(game.player)
                     break
                 default:
                     //selain 1 dan 2 dari random ke attack biasa
-                    golem.EnemyAttack(player)
+                    game.golem.EnemyAttack(game.player)
                     break
                 }
                 break
             case 2:
                 //meteor damage: 50 poin ke enemy
-                damage = player.Meteor(golem1)
+                game.damage = game.player.Meteor(golem1)
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //golempunch
-                    golem.GolemPunch(player)
+                    game.golem.GolemPunch(game.player)
                     break
                 case 2:
                     //attack biasa
-                    golem.EnemyAttack(player)
+                    game.golem.EnemyAttack(game.player)
                     break
                 default:
                     //attack biasa
-                    golem.EnemyAttack(player)
+                    game.golem.EnemyAttack(game.player)
                     break
                 }
                 break
             case 3:
                 //shield, damage 0 dan enemy tidak bisa attack
-                player.Shield(golem1)
+                game.player.Shield(golem1)
                 break
             case 4:
                 //untuk menggunakan potion ke tampilan heal wound
@@ -202,7 +210,7 @@ func mountainGolemScreen(){
                 break
             case 5:
                 //scan enemy detail golem
-                player.enemyVitalScreen(golem1)
+                game.player.enemyVitalScreen(golem1)
                 break
             case 6:
                 //flee from battle, keluar
@@ -221,12 +229,12 @@ func mountainGolemScreen(){
 
 //halaman menyembuhkan heal wound
 func healWoundScreen(){
-    print("Your HP is \(player.hp). \nYou have \(player.potion) Potions.\n \nAre you sure want to use 1 potion to heal wound? [Y/N]")
+    print("Your HP is \(game.player.hp). \nYou have \(game.player.potion) Potions.\n \nAre you sure want to use 1 potion to heal wound? [Y/N]")
     let heal = readLine()!
     //looping kalau y terus
     while (heal.uppercased() == "Y"){
         //while potions belum 0
-        if (player.potion == 0){
+        if (game.player.potion == 0){
             //run out of potion
             print("You don't have any potion left. Be careful of your next jouney. \nPress [return] to go back:")
             var inputret = readLine()
@@ -238,7 +246,7 @@ func healWoundScreen(){
             JourneyScreen()
         }else{
             //kalau potions ada ke method pakai potion
-            player.UsePotion()
+            game.player.UsePotion()
         }
     }
     if (heal.uppercased()=="N"){
@@ -254,7 +262,7 @@ func healWoundScreen(){
 
 //Halaman forest troll
 func forestTrollScreen(){
-    for troll1 in player.enemy {
+    for troll1 in game.player.enemy {
         if troll1 is Troll {
             print("As you enter the forest, you feel a sense of unease wash over you. Suddenly, you hear the sound of twigs snapping behind you. You quickly spin around, and find a Troll emerging from the shadows.\n \n👿 Name: \(troll1.enemyName)\n\n 👿 Health: \(troll1.enemyHp) \n \n Choose your action:\n[1] Physical Attack. No mana required. Deal 5pt of damage.\n[2] Meteor. Use 15pt of MP. Deal 50pt of damage.\n[3] Shield. Use 10pt of MP. Block enemy's attack in 1 turn.\n \n[4] Use Potion to heal wound.\n[5] Scan enemy's vital.\n[6] Flee from battle.\n \nYour choice?")
             var chooseF : Int?
@@ -262,43 +270,43 @@ func forestTrollScreen(){
             switch chooseF {
             case 1:
                 //Physical attack
-                damage = player.PhysicalAttack(troll1)
+                game.damage = game.player.PhysicalAttack(troll1)
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //troll shield, return damage attack sebelumnya
-                    troll.TrollShield(troll1, damage)
+                    game.troll.TrollShield(troll1, game.damage)
                     break
                 case 2:
                     //attack biasa
-                    troll.EnemyAttack(player)
+                    game.troll.EnemyAttack(game.player)
                     break
                 default:
                     //attack biasa
-                    troll.EnemyAttack(player)
+                    game.troll.EnemyAttack(game.player)
                     break
                 }
                 break
             case 2:
                 //meteor attack
-                damage = player.Meteor(troll1)
+                game.damage = game.player.Meteor(troll1)
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //troll shield, return damage attack sebelumnya
-                    troll.TrollShield(troll1, damage)
+                    game.troll.TrollShield(troll1, game.damage)
                     break
                 case 2:
                     //attack biasa
-                    troll.EnemyAttack(player)
+                    game.troll.EnemyAttack(game.player)
                     break
                 default:
                     //attack biasa
-                    troll.EnemyAttack(player)
+                    game.troll.EnemyAttack(game.player)
                     break
                 }
                 break
             case 3:
                 //shield attack player, jadi tidak di attack enemy untuk 1 turn ini
-                player.Shield(troll1)
+                game.player.Shield(troll1)
                 break
             case 4:
                 //menggunakan potion
@@ -306,7 +314,7 @@ func forestTrollScreen(){
                 break
             case 5:
                 //scan enemy vital
-                player.enemyVitalScreen(troll1)
+                game.player.enemyVitalScreen(troll1)
                 break
             case 6:
                 //flee from battle, keluar game

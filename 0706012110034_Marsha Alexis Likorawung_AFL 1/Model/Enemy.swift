@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Enemy{
+class Enemy: ProtocolEnemy{
     var enemyName:String
     var enemyHp: Int
     
@@ -34,7 +34,7 @@ class Enemy{
                 print("Press [return] to continue: ")
                 input = readLine()
             }
-            Game()
+            GamePlay()
         }else{
             player.hp = player.hp-15
             print("The \(enemyName) raises their giant axe and begins to strike you. \n**SLAM** 💥💥")
