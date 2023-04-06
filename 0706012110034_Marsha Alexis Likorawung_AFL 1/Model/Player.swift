@@ -7,6 +7,7 @@
 
 import Foundation
 
+//class player memakai protokol player
 class Player: ProtocolPlayer{
     var name:String
     var hp: Int
@@ -24,6 +25,7 @@ class Player: ProtocolPlayer{
         self.enemy = []
     }
     
+    //untuk player mengaktifkan meteor attack, yang terjadi: hp enemy akan berkurang 50 point dan mana player berkurang 15
     func Meteor(_ enemy: Enemy)-> Int{
         print("=================Meteor Attack===============")
         let hpbaru = enemy.enemyHp - 50
@@ -47,6 +49,7 @@ class Player: ProtocolPlayer{
         return 50
     }
     
+    //untuk player mengaktifkan shield, yang terjadi: mana berkurang 10 point dan enemy tidak bisa attack anda
     func Shield(_ enemy: Enemy){
         print("=================Shield===============")
         let mpbaru = mana-10
@@ -69,6 +72,7 @@ class Player: ProtocolPlayer{
         }
     }
     
+    //untuk player melakukan physical attack, damagenya 5 dan tidak memakai mana
     func PhysicalAttack(_ enemy: Enemy) -> Int{
         print("=================Physical Attack===============")
         let hpbaru = enemy.enemyHp - 5
@@ -87,6 +91,7 @@ class Player: ProtocolPlayer{
         return 5
     }
     
+    //untuk memakai elixer, menambah mana anda
     func UseElixer(){
         print("Your Mana is now: \(mana). \nYou have \(elixer) Elixer left.")
         let elixirbaru = elixer - 1
@@ -102,6 +107,7 @@ class Player: ProtocolPlayer{
         JourneyScreen()
     }
     
+    //untuk memakai potion, manambah health anda
     func UsePotion(){
         let hpbaru = hp + 20
         if(potion<1){
@@ -141,6 +147,7 @@ class Player: ProtocolPlayer{
         }
     }
     
+    //untuk melihat enemy vital
     func enemyVitalScreen(_ enemy: Enemy){
         print("Name: \(enemy.enemyName)\n\n HP: \(enemy.enemyHp)/100\n\n Attack: 5pt—50pt of damage\n\nPress [return] to go back: ")
         var back = readLine()
@@ -152,6 +159,7 @@ class Player: ProtocolPlayer{
         forestTrollScreen()
     }
     
+    //untuk cek kalau hp enemy sudah 0 semua maka anda kalah
     func Afterlosing(){
         for golem in game.player.enemy {
             for troll in game.player.enemy {

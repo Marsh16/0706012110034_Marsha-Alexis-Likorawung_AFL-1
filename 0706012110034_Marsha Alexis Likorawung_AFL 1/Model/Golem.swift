@@ -7,12 +7,14 @@
 
 import Foundation
 
-class Golem: Enemy {
+//merupakan subclass dari class enemy
+class Golem: Enemy,ProtocolGolem {
     
     override init(_ enemyName: String, _ enemyHp: Int) {
         super.init(enemyName,enemyHp)
     }
     
+    //untuk attack dari golem yaitu damagenya ke player sebanyak 20 point
     func GolemPunch(_ player: Player){
         let newhp = player.hp-20
         if(newhp<0){

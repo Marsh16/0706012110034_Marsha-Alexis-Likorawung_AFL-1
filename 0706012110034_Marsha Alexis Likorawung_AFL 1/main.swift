@@ -274,7 +274,7 @@ func forestTrollScreen(){
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //troll shield, return damage attack sebelumnya
-                    game.troll.TrollShield(troll1, game.damage)
+                    game.troll.TrollShield(game.damage)
                     break
                 case 2:
                     //attack biasa
@@ -292,7 +292,7 @@ func forestTrollScreen(){
                 switch(Int.random(in: 1..<3)){
                 case 1:
                     //troll shield, return damage attack sebelumnya
-                    game.troll.TrollShield(troll1, game.damage)
+                    game.troll.TrollShield(game.damage)
                     break
                 case 2:
                     //attack biasa

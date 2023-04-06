@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Enemy memakai protokol enemy
 class Enemy: ProtocolEnemy{
     var enemyName:String
     var enemyHp: Int
@@ -25,23 +26,28 @@ class Enemy: ProtocolEnemy{
             player.hp = 0
             //kalau sudah 0 hpnya player mati
             print("You are dead, you lose/n")
-            //mulai 
+            //mulai
             print("Play again?")
             print("Press [return] to continue: ")
             var input = readLine()
+            //error handling
             while(input != ""){
                 print("Wrong Input")
                 print("Press [return] to continue: ")
                 input = readLine()
             }
+            //main lagi
             GamePlay()
         }else{
+            //enemy attack damagenya 15 point
             player.hp = player.hp-15
             print("The \(enemyName) raises their giant axe and begins to strike you. \n**SLAM** 💥💥")
             print("You are wounded.\nYour HP is now: \(player.hp)")
             if self is Golem {
+                //kalau enemynya golem akan ke screen golem untuk lanjut menunya attacknya apa
                 mountainGolemScreen()
             }else{
+                //kalau enemynya troll akan ke screen troll untuk lanjut menu attacknya
                 forestTrollScreen()
             }
         }

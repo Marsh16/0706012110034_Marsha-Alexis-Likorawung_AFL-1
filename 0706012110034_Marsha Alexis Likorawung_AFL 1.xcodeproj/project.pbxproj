@@ -13,6 +13,8 @@
 		064751F129CD47F7002A3942 /* Troll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064751F029CD47F7002A3942 /* Troll.swift */; };
 		06E4F1B129DBBDEB00D997C6 /* ProtocolPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F1B029DBBDEB00D997C6 /* ProtocolPlayer.swift */; };
 		06E4F1B329DBBE9600D997C6 /* ProtocolEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F1B229DBBE9600D997C6 /* ProtocolEnemy.swift */; };
+		06E4F1B729DF1D9900D997C6 /* ProtocolGolem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F1B629DF1D9900D997C6 /* ProtocolGolem.swift */; };
+		06E4F1B929DF1E3A00D997C6 /* ProtocolTroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E4F1B829DF1E3A00D997C6 /* ProtocolTroll.swift */; };
 		06F4673E29AD9E4200AFAC08 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F4673D29AD9E4200AFAC08 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		064751F029CD47F7002A3942 /* Troll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Troll.swift; sourceTree = "<group>"; };
 		06E4F1B029DBBDEB00D997C6 /* ProtocolPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProtocolPlayer.swift; path = "../../../../../../marshalikorawung/Documents/Xcode/0706012110034_Marsha Alexis Likorawung_AFL 1/0706012110034_Marsha Alexis Likorawung_AFL 1/Protocol/ProtocolPlayer.swift"; sourceTree = "<group>"; };
 		06E4F1B229DBBE9600D997C6 /* ProtocolEnemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProtocolEnemy.swift; path = "../../../../../../marshalikorawung/Documents/Xcode/0706012110034_Marsha Alexis Likorawung_AFL 1/0706012110034_Marsha Alexis Likorawung_AFL 1/Protocol/ProtocolEnemy.swift"; sourceTree = "<group>"; };
+		06E4F1B629DF1D9900D997C6 /* ProtocolGolem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProtocolGolem.swift; path = "../../../../../../marshalikorawung/Documents/Xcode/0706012110034_Marsha Alexis Likorawung_AFL 1/0706012110034_Marsha Alexis Likorawung_AFL 1/Protocol/ProtocolGolem.swift"; sourceTree = "<group>"; };
+		06E4F1B829DF1E3A00D997C6 /* ProtocolTroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProtocolTroll.swift; path = "../../../../../../marshalikorawung/Documents/Xcode/0706012110034_Marsha Alexis Likorawung_AFL 1/0706012110034_Marsha Alexis Likorawung_AFL 1/Protocol/ProtocolTroll.swift"; sourceTree = "<group>"; };
 		06F4673A29AD9E4200AFAC08 /* 0706012110034_Marsha Alexis Likorawung_AFL 1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "0706012110034_Marsha Alexis Likorawung_AFL 1"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F4673D29AD9E4200AFAC08 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +70,8 @@
 			children = (
 				06E4F1B029DBBDEB00D997C6 /* ProtocolPlayer.swift */,
 				06E4F1B229DBBE9600D997C6 /* ProtocolEnemy.swift */,
+				06E4F1B629DF1D9900D997C6 /* ProtocolGolem.swift */,
+				06E4F1B829DF1E3A00D997C6 /* ProtocolTroll.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -157,7 +163,9 @@
 				064751EF29CD47ED002A3942 /* Golem.swift in Sources */,
 				064751EB29CD4701002A3942 /* Enemy.swift in Sources */,
 				064751ED29CD4776002A3942 /* Player.swift in Sources */,
+				06E4F1B929DF1E3A00D997C6 /* ProtocolTroll.swift in Sources */,
 				064751F129CD47F7002A3942 /* Troll.swift in Sources */,
+				06E4F1B729DF1D9900D997C6 /* ProtocolGolem.swift in Sources */,
 				06E4F1B129DBBDEB00D997C6 /* ProtocolPlayer.swift in Sources */,
 				06E4F1B329DBBE9600D997C6 /* ProtocolEnemy.swift in Sources */,
 				06F4673E29AD9E4200AFAC08 /* main.swift in Sources */,
