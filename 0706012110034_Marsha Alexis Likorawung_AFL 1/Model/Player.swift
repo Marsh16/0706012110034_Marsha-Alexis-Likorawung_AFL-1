@@ -159,7 +159,7 @@ class Player: ProtocolPlayer{
         forestTrollScreen()
     }
     
-    //untuk cek kalau hp enemy sudah 0 semua maka anda kalah
+    //untuk cek kalau hp enemy sudah 0 semua maka anda menang
     func Afterlosing(){
         for golem in game.player.enemy {
             for troll in game.player.enemy {
