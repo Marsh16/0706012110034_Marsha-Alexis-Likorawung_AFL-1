@@ -93,17 +93,18 @@ class Player: ProtocolPlayer{
     
     //untuk memakai elixer, menambah mana anda
     func UseElixer(){
-        print("Your Mana is now: \(mana). \nYou have \(elixer) Elixer left.")
         let elixirbaru = elixer - 1
         let manabaru = mana + 15
         if(elixirbaru <= 0){
             print("Elixer is empty")
-        }else if(manabaru>50){
+        }else if(manabaru>=50){
+            mana = 50
             print("Mana is full")
         }else{
             elixer = elixer - 1
             mana = mana + 15
         }
+        print("Your Mana is now: \(mana). \nYou have \(elixer) Elixer left.")
         JourneyScreen()
     }
     
@@ -156,7 +157,11 @@ class Player: ProtocolPlayer{
             print("Press [return] to go back: ")
             back = readLine()
         }
-        forestTrollScreen()
+        if enemy is Golem {
+            mountainGolemScreen()
+        }else{
+            forestTrollScreen()
+        }
     }
     
     //untuk cek kalau hp enemy sudah 0 semua maka anda menang
