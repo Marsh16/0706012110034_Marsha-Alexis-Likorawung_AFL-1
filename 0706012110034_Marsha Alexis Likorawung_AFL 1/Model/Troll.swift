@@ -7,8 +7,8 @@
 
 import Foundation
 
-//merupakan subclass dari class enemy
-class Troll: Enemy {
+//merupakan subclass dari class enemy ada protocol troll
+class Troll: Enemy,ProtocolTroll {
     
     override init(_ enemyName: String, _ enemyHp: Int) {
         super.init(enemyName,enemyHp)

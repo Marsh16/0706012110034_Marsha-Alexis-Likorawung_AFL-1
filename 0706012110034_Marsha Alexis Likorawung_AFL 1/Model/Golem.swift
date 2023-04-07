@@ -7,7 +7,7 @@
 
 import Foundation
 
-//merupakan subclass dari class enemy
+//merupakan subclass dari class enemy ada protocol golem
 class Golem: Enemy,ProtocolGolem {
     
     override init(_ enemyName: String, _ enemyHp: Int) {
