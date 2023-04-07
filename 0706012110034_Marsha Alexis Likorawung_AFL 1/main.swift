@@ -30,8 +30,6 @@ var game = Game(Player(""), Golem("Golem Hitler", 100), Troll("Troll Chaplin", 1
 //play game
 GamePlay()
 
-//
-//func
 //pengecekan input berupa huruf bukan int
 func validateInput(_ input: String) -> Bool {
     let letters = CharacterSet.letters
